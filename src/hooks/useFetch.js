@@ -1,6 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 
 export const useFetch = (url) => {
+
+    const isMounted = useRef(true) // Esta referencia nos permitira saber cuando el componente que utiliza otro componente esta montado
 
     const [state, setState] = useState({
         data: null,
@@ -9,17 +11,31 @@ export const useFetch = (url) => {
     })
 
     useEffect( () => {
+        // Cuando el componente se desmonte, se devuelve algo
+        return () => {
+            isMounted.current = false;
+        }
+    }, [])
+
+    useEffect( () => {
 
         setState({data: null, loading: true, error: null})
 
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
-                setState({
-                    loading: false,
-                    error: null,
-                    data: data
-                })
+
+                setTimeout(() => {
+                    if (isMounted.current) {
+                        setState({
+                            loading: false,
+                            error: null,
+                            data: data
+                        })
+                    } else {
+                        console.log('Fallo render');
+                    }
+                }, 4000);
             })
     }, [url])
 
