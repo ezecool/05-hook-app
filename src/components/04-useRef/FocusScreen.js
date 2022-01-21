@@ -7,7 +7,7 @@ export const FocusScreen = () => {
 
     const handleClick = () => {
         // document.querySelector('input').select();
-        inputRef.current.select()
+        inputRef.current.select();
     }
 
     return (
@@ -19,7 +19,8 @@ export const FocusScreen = () => {
                 ref={inputRef}
                 type="text"
                 className="form-control"
-                placeholder='Su nombre'/>
+                placeholder='Su nombre'
+            />
             
             <button
                 className="btn btn-primary mt-3"

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { RealExampleRef } from './components/04-useRef/RealExampleRef';
+// import { RealExampleRef } from './components/04-useRef/RealExampleRef';
 // import { FocusScreen } from './components/04-useRef/FocusScreen';
 
 // import { FormWithCustomHook } from './components/02-useEffect/FormWithCustomHook';
@@ -8,9 +8,10 @@ import { RealExampleRef } from './components/04-useRef/RealExampleRef';
 // import { CounterApp } from './components/01-useState/CounterApp';
 // import { CounterWithCustomHook } from './components/01-useState/CounterWithCustomHook';
 // import { SimpleForm } from './components/02-useEffect/SimpleForm';
-// import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
+import { MultipleCustomHooks } from './components/03-examples/MultipleCustomHooks';
+import { Layout } from './components/05-useLayoutEffect/Layout';
 
-ReactDOM.render(
-    <RealExampleRef />, 
+ReactDOM.render(  
+    <Layout />, 
   document.getElementById('root')
 );

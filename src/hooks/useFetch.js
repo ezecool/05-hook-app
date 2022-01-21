@@ -25,7 +25,14 @@ export const useFetch = (url) => {
             .then(resp => resp.json())
             .then(data => {
 
-                setTimeout(() => {
+                if (isMounted.current) {
+                    setState({
+                        loading: false,
+                        error: null,
+                        data: data
+                    })
+                }
+/*                 setTimeout(() => {
                     if (isMounted.current) {
                         setState({
                             loading: false,
@@ -35,7 +42,7 @@ export const useFetch = (url) => {
                     } else {
                         console.log('Fallo render');
                     }
-                }, 4000);
+                }, 4000); */
             })
     }, [url])
 
